@@ -11,7 +11,7 @@
 + Floating Point Division pointers via [How do I get a float value when dividing two integers? (PHP)](https://stackoverflow.com/questions/17218312/how-do-i-get-a-float-value-when-dividing-two-integers-php)
 
 ## Code style divergences
-+ None at the moment.
++ My code is longer than 80 characters in a few places.
 
 ## To Do
 - [x] Come up with an idea
