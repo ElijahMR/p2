@@ -1,13 +1,23 @@
 <?php
-if (isset($_GET['day'])) {
-    $day = strtotime($_GET['day']);
-    //check if the date is within our limits.
-    //throw an error if not.
-    if () {
-        //return error
-    } else {
-        //probably a switch here to see which radio was checked and then calculate that output
 
-        //Run the algo to figure out how many leap years have passed since the year of birth.
+require('classes/Calculator.php');
+
+use Elijah\AgeCalculate;
+
+$AgeCalculate = new AgeCalculate();
+$ageResult = '';
+$leapYearResult = '';
+$errors = '';
+
+$day = isset($_GET['day']) ? $_GET['day'] : '';
+$leapYears = isset($_GET['leapYears']) ? true : false;
+
+if ($day) {
+    $errors = $AgeCalculate->hasErrors($day);
+    if (!$errors) {
+        $ageResult = $AgeCalculate->calculate($_GET['timeScale']);
+        if (isset($leapYears)) {
+            $leapYearResult = $AgeCalculate->leapYearCalculator($day);
+        }
     }
 }
